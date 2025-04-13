@@ -4,7 +4,8 @@ use std::{
 };
 
 fn capture_output(input: &str) -> (String, String, i32) {
-    let output = Command::new("run_test.sh")
+    let output = Command::new("sh")
+        .arg("run_test.sh")
         .arg("run")
         .arg(input)
         .stdout(Stdio::piped())
