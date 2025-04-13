@@ -1,0 +1,9 @@
+// This program declares and initializes multiple variables and prints their values
+var foo = 2;
+print foo;
+var foo = 3;
+print foo;
+var bar = 5;
+print bar;
+var foo = bar;
+print foo;

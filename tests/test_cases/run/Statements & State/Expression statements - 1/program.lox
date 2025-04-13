@@ -1,0 +1,6 @@
+// This program tests that statements are executed even if they don't have any side effects
+// It also tests complex arithmetic expressions and string concatenation
+(65 + 41 - 13) > (53 - 65) * 2;
+print !true;
+"quz" + "world" + "bar" + "hello" == "quzworldbarhello";
+print !true;

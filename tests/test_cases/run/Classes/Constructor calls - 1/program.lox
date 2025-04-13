@@ -1,0 +1,13 @@
+class Default {
+  // this is the constructor
+  init() {
+    // it should be able to set<|SPACE|>    // properties on the instance
+    this.x = "baz";
+    this.y = 84;
+  }
+}
+
+// the constructor should be called
+// automatically  when the class is being<|SPACE|>// instantiated
+print Default().x;
+print Default().y;

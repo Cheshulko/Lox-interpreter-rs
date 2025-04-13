@@ -1,0 +1,7 @@
+fun foo() {
+  // Return statements are allowed within function scope
+  return "at function scope is ok";
+}
+
+// Return statements are not allowed at the top-level<|SPACE|>
+return; // This should be a compile error

@@ -1,0 +1,7 @@
+// This program uses a while loop to print the numbers from 0 to 3
+// The statement inside the block is executed every time the loop condition is true
+var bar = 0;
+while (bar < 3) {
+  print bar;
+  bar = bar + 1;
+}

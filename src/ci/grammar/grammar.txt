@@ -1,0 +1,60 @@
+expression     → literal
+               | unary
+               | binary
+               | grouping ;
+
+literal        → NUMBER | STRING | "true" | "false" | "nil" ;
+grouping       → "(" expression ")" ;
+unary          → ( "-" | "!" ) expression ;
+binary         → expression operator expression ;
+operator       → "==" | "!=" | "<" | "<=" | ">" | ">="
+               | "+"  | "-"  | "*" | "/" ;
+----------------------------------------------------------------------
+program        → declaration* EOF ;
+
+/* Statements */
+declaration    → classDecl
+               | funDecl
+               | varDecl
+               | statement ;
+classDecl      → "class" IDENTIFIER ( "<" IDENTIFIER )?
+                 "{" function* "}" ;
+funDecl        → "fun" function ;
+function       → IDENTIFIER "(" parameters? ")" block ;
+parameters     → IDENTIFIER ( "," IDENTIFIER )* ;
+varDecl        → "var" IDENTIFIER ( "=" expression )? ";" ;
+statement      → printStmt
+               | blockStmt
+               | ifElseStmt
+               | whileStmt
+               | forStmt
+               | exprStmt
+               | returnStmt;
+returnStmt     → "return" expression? ";" ;
+blockStmt      → "{" declaration* "}" ;
+exprStmt       → expression ";" ;
+printStmt      → "print" expression ";" ;
+ifElseStmt     → "if" "(" expression ")" statement
+               ( "else" statement )? ;
+whileStmt      → "while" "(" expression ")" statement ;
+forStmt        → "for" "(" ( varDecl | exprStmt | ";" )
+                 expression? ";"
+                 expression? ")" statement ;
+
+/* Expressions */
+expression     → assignment ;
+assignment     → ( call "." )? IDENTIFIER "=" assignment
+               | or ;
+or             → and ( "or" and )* ;
+and            → equality ( "and" equality )* ;
+equality       → comparison ( ( "!=" | "==" ) comparison )* ;
+comparison     → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;
+term           → factor ( ( "-" | "+" ) factor )* ;
+factor         → unary ( ( "/" | "*" ) unary )* ;
+unary          → ( "!" | "-" ) unary
+               | call ;
+call           → primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
+primary        → "true" | "false" | "nil" | "this"
+               | NUMBER | STRING | IDENTIFIER | "(" expression ")"
+               | "super" "." IDENTIFIER ;
+arguments      → expression ( "," expression )* ;

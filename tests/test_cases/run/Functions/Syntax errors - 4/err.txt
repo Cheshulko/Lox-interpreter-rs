@@ -1,0 +1,1 @@
+Unexpected token. Expected one of: TokenType::RIGHT_PAREN

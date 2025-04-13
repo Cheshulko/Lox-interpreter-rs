@@ -1,0 +1,4 @@
+// This should print "block body" if the condition evaluates to True
+if (false) {
+  print "block body";
+}

@@ -1,0 +1,5 @@
+// This program tests statements that don't have any side effects
+58 - 96 >= -30 * 2 / 30 + 25;
+false == false;
+("quz" == "bar") == ("world" != "baz");
+print false;

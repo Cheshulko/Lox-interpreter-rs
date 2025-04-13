@@ -1,0 +1,9 @@
+inner bar
+outer quz
+global baz
+outer bar
+outer quz
+global baz
+global bar
+global quz
+global baz

@@ -1,0 +1,8 @@
+// This program declares a variable but doesn't initialize it
+// It prints the variable's value
+var bar = 72 + 79 * 58;
+print bar;
+var foo = 79 * 58;
+print bar + foo;
+var baz;
+print baz;

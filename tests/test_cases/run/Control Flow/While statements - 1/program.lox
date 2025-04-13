@@ -1,0 +1,4 @@
+// This program uses a while loop to print the numbers from 0 to N
+// The assignment operation returns the assigned value
+var bar = 0;
+while (bar < 3) print bar = bar + 1;

@@ -1,0 +1,6 @@
+// This program tests that the assignment operator works on any declared variable
+var hello = 10;
+var foo = 10;
+foo = hello;
+hello = foo;
+print hello + foo;

@@ -1,0 +1,9 @@
+class Person {
+  init() {
+    print "baz";
+    // constructor should return nothing
+    return;
+  }
+}
+
+Person();

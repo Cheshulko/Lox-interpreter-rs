@@ -1,0 +1,6 @@
+bar: Starting
+bar: Processing
+bar: Finishing
+bar: Extra line
+world: Failed!
+world: Retrying...

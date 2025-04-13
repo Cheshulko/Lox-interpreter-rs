@@ -1,0 +1,3 @@
+// This program uses a random boolean to decide which branch to execute,
+// and then prints the appropriate string
+if (true) print "if branch"; else if (true) print "else-if branch";

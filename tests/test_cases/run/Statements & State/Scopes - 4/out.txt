@@ -1,0 +1,4 @@
+modified world
+inner foo
+modified world
+outer foo

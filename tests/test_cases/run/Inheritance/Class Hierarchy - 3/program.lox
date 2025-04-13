@@ -1,0 +1,9 @@
+class A {}
+
+fun f() {
+  // B is a subclass of A
+  class B < A {}
+  return B;
+}
+
+print f();

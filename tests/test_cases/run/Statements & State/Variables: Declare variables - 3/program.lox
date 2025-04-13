@@ -1,0 +1,4 @@
+// This program assigns the result of an arithmetic expression to a variable
+// Then it prints the value of the variable
+var foo = (8 * (16 + 16)) / 4 + 16;
+print foo;

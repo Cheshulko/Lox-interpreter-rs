@@ -1,0 +1,6 @@
+// This program declares multiple variables and<|SPACE|>// prints the result of arithmetic operations on them
+var baz = 58;
+var hello = 58;
+print baz + hello;
+var bar = 58;
+print baz + hello + bar;

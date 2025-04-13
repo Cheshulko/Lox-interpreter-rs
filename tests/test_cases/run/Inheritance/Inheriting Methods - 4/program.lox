@@ -1,0 +1,24 @@
+class bar {
+  inbar() {
+    print "from bar";
+  }
+}
+
+class hello < bar {
+  inhello() {
+    print "from hello";
+  }
+}
+
+class foo < hello {
+  infoo() {
+    print "from foo";
+  }
+}
+
+// foo should inherit the methods
+// from both bar and hello
+var foo = foo();
+foo.inbar();
+foo.inhello();
+foo.infoo();

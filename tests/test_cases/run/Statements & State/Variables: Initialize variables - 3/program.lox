@@ -1,0 +1,6 @@
+// This program declares a variable but doesn't initialize it
+// It prints the variable's value
+var world = 14;
+var quz;
+var foo;
+print quz;

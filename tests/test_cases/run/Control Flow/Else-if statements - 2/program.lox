@@ -1,0 +1,9 @@
+// This program uses a random boolean to decide which branch to execute,
+// and then prints the appropriate string
+if (true) {
+  print "hello";
+} else if (true) print "hello";
+
+if (true) print "hello"; else if (true) {
+  print "hello";
+}

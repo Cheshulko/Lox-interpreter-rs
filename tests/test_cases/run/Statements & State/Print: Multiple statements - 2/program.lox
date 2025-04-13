@@ -1,0 +1,4 @@
+// This program tests the syntax of multiple statements in a single line
+print "world"; print true;
+print true;
+print "foo"; print 20;

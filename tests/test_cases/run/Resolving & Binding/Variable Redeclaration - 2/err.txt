@@ -1,0 +1,1 @@
+Already have <var name> variable with this name in this scope

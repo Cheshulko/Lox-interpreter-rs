@@ -1,0 +1,20 @@
+// This program creates nested scopes and tests local scopes and variable shadowing
+var bar = "global bar";
+var quz = "global quz";
+var baz = "global baz";
+{
+  var bar = "outer bar";
+  var quz = "outer quz";
+  {
+    var bar = "inner bar";
+    print bar;
+    print quz;
+    print baz;
+  }
+  print bar;
+  print quz;
+  print baz;
+}
+print bar;
+print quz;
+print baz;
