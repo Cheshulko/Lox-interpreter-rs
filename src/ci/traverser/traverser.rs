@@ -43,7 +43,7 @@ impl<'de> Traverser<'de> {
             // TODO: Ex. [line 5] Error at 'a': Can't read local variable in its own initializer.
             anyhow::bail! {"Can't read local variable in its own initializer."}
         }
-        if result.is_scope_var_redeclaretion() {
+        if result.is_scope_var_redeclaration() {
             // TODO: Ex. [line 3] Error at 'a': Already a variable with this name in this scope.
             anyhow::bail! {"Already have <var name> variable with this name in this scope"}
         }
@@ -95,7 +95,7 @@ impl<'de> Traverse<'de> for VarDecl<'de> {
                 .contains(self.name.lexeme);
 
             if scope_already_contains && !traverser_.is_global_scope() {
-                return TraverseResult::scope_var_redeclaretion();
+                return TraverseResult::scope_var_redeclaration();
             }
 
             assert!(
@@ -136,7 +136,7 @@ impl<'de> Traverse<'de> for FunctionDecl<'de> {
 
             for parameter in self.parameters.iter() {
                 if func_scope.contains(&parameter.lexeme) {
-                    return TraverseResult::scope_var_redeclaretion();
+                    return TraverseResult::scope_var_redeclaration();
                 }
 
                 func_scope.insert(parameter.lexeme);
@@ -153,7 +153,7 @@ impl<'de> Traverse<'de> for FunctionDecl<'de> {
             traverser_.funcs_stack.pop();
         }
 
-        // TODO: scope func redeclaretion ?
+        // TODO: scope func redeclaration ?
 
         return result;
     }
@@ -171,7 +171,7 @@ impl<'de> Traverse<'de> for ClassMethodDecl<'de> {
 
             for parameter in self.parameters.iter() {
                 if func_scope.contains(&parameter.lexeme) {
-                    return TraverseResult::scope_var_redeclaretion();
+                    return TraverseResult::scope_var_redeclaration();
                 }
 
                 func_scope.insert(parameter.lexeme);
@@ -188,7 +188,7 @@ impl<'de> Traverse<'de> for ClassMethodDecl<'de> {
             traverser_.funcs_stack.pop();
         }
 
-        // TODO: scope func redeclaretion ?
+        // TODO: scope func redeclaration ?
 
         return result;
     }
@@ -451,9 +451,9 @@ impl TraverseResult {
         }
     }
 
-    fn scope_var_redeclaretion() -> TraverseResult {
+    fn scope_var_redeclaration() -> TraverseResult {
         Self {
-            state: TraverseResult::SCOPE_VAR_REDECLARETION,
+            state: TraverseResult::SCOPE_VAR_REDECLARATION,
         }
     }
 
@@ -497,8 +497,8 @@ impl TraverseResult {
         self.state & TraverseResult::OWN_VAR_INITIALIZATION > 0
     }
 
-    fn is_scope_var_redeclaretion(&self) -> bool {
-        self.state & TraverseResult::SCOPE_VAR_REDECLARETION > 0
+    fn is_scope_var_redeclaration(&self) -> bool {
+        self.state & TraverseResult::SCOPE_VAR_REDECLARATION > 0
     }
 
     fn is_invalid_return(&self) -> bool {
@@ -527,7 +527,7 @@ impl TraverseResult {
 
     const OK: u8 = 0;
     const OWN_VAR_INITIALIZATION: u8 = 1 << 0;
-    const SCOPE_VAR_REDECLARETION: u8 = 1 << 1;
+    const SCOPE_VAR_REDECLARATION: u8 = 1 << 1;
     const INVALID_RETURN: u8 = 1 << 2;
     const THIS_OUTSIDE_OF_CLASS: u8 = 1 << 3;
     const RETURN_VALUE_FROM_INITIALIZER: u8 = 1 << 4;
